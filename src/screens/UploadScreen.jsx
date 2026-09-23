@@ -3,9 +3,9 @@ import { parsePdf } from '../lib/pdf.js'
 import { saveBook, savePage } from '../lib/db.js'
 import { detectStart } from '../lib/worker.js'
 
-// Testing: only process this many pages starting from startPage.
-// Set to Infinity for production.
-const PAGE_LIMIT = 4
+// Number of pages to process starting from startPage.
+// Infinity = the whole book (production). Lower it to cap Gemini usage during testing.
+const PAGE_LIMIT = Infinity
 
 export default function UploadScreen({ onReady }) {
   const inputRef = useRef(null)
